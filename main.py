@@ -38,6 +38,6 @@ async def help(ctx):
 
 async def main():
     await load ()
-    await bot.start("MTAxNTI4MTM0Nzg5MzQxMTg4MA.GcaMOV.-zWPulKWfBq_hTESBI_-NcKTmkIVHMFNQhJ9Dc")
+    await bot.start("TOKEN")
 
 asyncio.run(main())
