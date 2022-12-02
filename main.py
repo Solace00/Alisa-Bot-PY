@@ -1,23 +1,27 @@
 import discord
 import os
+import random
+import asyncio
+from discord import app_commands
 from discord.ext import commands
 
 intents = discord.Intents.all()
 intents.members = True
 bot = commands.Bot(command_prefix = "!", intents = intents, help_command=None)
 
-@bot.command()
-async def load(ctx, extension):
-    bot.load_extension(f'cogs.{extension}')
+@bot.event
+async def on_ready():
+    print("am online cutie.")
 
-async def unload(ctx, extension):
-    bot.unload_extension(f'cogs.{extension}')
 
-for filename in os.listdir('./cogs'):
+async def load():
+    for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
-                bot.load_extension(f'cogs.{filename[:-3]}')
+            await bot.load_extension(f'cogs.{filename[:-3]}')
 
-################### HELP ##############################
+
+################### HELP ##########################################
+
 @bot.group(invoke_without_command=True)
 async def help(ctx):
     em = discord.Embed(title = "help", description = "help commands duh", color = 0x000000)
@@ -31,7 +35,9 @@ async def help(ctx):
 
 #####################################################################
 
+
 async def main():
     await load ()
+    await bot.start("MTAxNTI4MTM0Nzg5MzQxMTg4MA.GcaMOV.-zWPulKWfBq_hTESBI_-NcKTmkIVHMFNQhJ9Dc")
 
-bot.run("TOKEN")
+asyncio.run(main())

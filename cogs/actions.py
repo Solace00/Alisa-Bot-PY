@@ -1,15 +1,16 @@
 import discord
 import random
+from discord import app_commands
 from discord.ext import commands
 
-class Action(commands.cog):
+class Action(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.cog.listener()
+    @commands.Cog.listener()
     async def on_ready(self):
-        print("am online cutie")
+        print("Actions Cog loaded.")
 
 #Hugs
 
