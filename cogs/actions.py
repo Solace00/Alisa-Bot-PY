@@ -16,7 +16,15 @@ class Action(commands.Cog):
 
     @commands.command()
     async def hug(self, ctx, user: discord.User = None, *, Notes=None):
-        hugGifs = ["https://media.giphy.com/media/GMFUrC8E8aWoo/giphy.gif", "https://media.giphy.com/media/wSY4wcrHnB0CA/giphy.gif", "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif", "https://media.giphy.com/media/ZQN9jsRWp1M76/giphy.gif", "https://media.giphy.com/media/fLv2F5rMY2YWk/giphy.gif", "https://media.giphy.com/media/vVA8U5NnXpMXK/giphy.gif", "https://media.giphy.com/media/DjczAlIcyK1Co/giphy.gif", "https://media.giphy.com/media/sUIZWMnfd4Mb6/giphy.gif", "https://c.tenor.com/xIuXbMtA38sAAAAd/toilet-bound-hanakokun.gif","https://c.tenor.com/pcULC09CfkgAAAAC/hug-anime.gif", "https://c.tenor.com/vkiqyZJWJ4wAAAAC/hug-cat.gif", "https://c.tenor.com/rQ2QQQ9Wu_MAAAAC/anime-cute.gif", "https://c.tenor.com/1fXGbo7KvNUAAAAC/hug-anime.gif", "https://c.tenor.com/oQPT1dxDIVQAAAAC/anime-hug.gif", "https://cdn.myanimelist.net/s/common/uploaded_files/1461073447-335af6bf0909c799149e1596b7170475.gif"]
+        hugGifs = ["https://media.giphy.com/media/GMFUrC8E8aWoo/giphy.gif", 
+        "https://media.giphy.com/media/wSY4wcrHnB0CA/giphy.gif", "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif", 
+        "https://media.giphy.com/media/ZQN9jsRWp1M76/giphy.gif", "https://media.giphy.com/media/fLv2F5rMY2YWk/giphy.gif", 
+        "https://media.giphy.com/media/vVA8U5NnXpMXK/giphy.gif", "https://media.giphy.com/media/DjczAlIcyK1Co/giphy.gif", 
+        "https://media.giphy.com/media/sUIZWMnfd4Mb6/giphy.gif", "https://c.tenor.com/xIuXbMtA38sAAAAd/toilet-bound-hanakokun.gif",
+        "https://c.tenor.com/pcULC09CfkgAAAAC/hug-anime.gif", "https://c.tenor.com/vkiqyZJWJ4wAAAAC/hug-cat.gif", 
+        "https://c.tenor.com/rQ2QQQ9Wu_MAAAAC/anime-cute.gif", "https://c.tenor.com/1fXGbo7KvNUAAAAC/hug-anime.gif", 
+        "https://c.tenor.com/oQPT1dxDIVQAAAAC/anime-hug.gif", 
+        "https://cdn.myanimelist.net/s/common/uploaded_files/1461073447-335af6bf0909c799149e1596b7170475.gif"]
 
         if not user:
             em = discord.Embed(description=f"{ctx.message.author.mention} hugs", color = 0x000000)
