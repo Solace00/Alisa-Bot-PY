@@ -1,5 +1,7 @@
 import discord
 import random
+import giphy_client
+from giphy_client.rest import ApiException
 from discord import app_commands
 from discord.ext import commands
 
@@ -16,33 +18,147 @@ class Action(commands.Cog):
 
     @commands.command()
     async def hug(self, ctx, user: discord.User = None, *, Notes=None):
-        hugGifs = ["https://media.giphy.com/media/GMFUrC8E8aWoo/giphy.gif", 
-        "https://media.giphy.com/media/wSY4wcrHnB0CA/giphy.gif", "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif", 
-        "https://media.giphy.com/media/ZQN9jsRWp1M76/giphy.gif", "https://media.giphy.com/media/fLv2F5rMY2YWk/giphy.gif", 
-        "https://media.giphy.com/media/vVA8U5NnXpMXK/giphy.gif", "https://media.giphy.com/media/DjczAlIcyK1Co/giphy.gif", 
-        "https://media.giphy.com/media/sUIZWMnfd4Mb6/giphy.gif", "https://c.tenor.com/xIuXbMtA38sAAAAd/toilet-bound-hanakokun.gif",
-        "https://c.tenor.com/pcULC09CfkgAAAAC/hug-anime.gif", "https://c.tenor.com/vkiqyZJWJ4wAAAAC/hug-cat.gif", 
-        "https://c.tenor.com/rQ2QQQ9Wu_MAAAAC/anime-cute.gif", "https://c.tenor.com/1fXGbo7KvNUAAAAC/hug-anime.gif", 
-        "https://c.tenor.com/oQPT1dxDIVQAAAAC/anime-hug.gif", 
-        "https://cdn.myanimelist.net/s/common/uploaded_files/1461073447-335af6bf0909c799149e1596b7170475.gif"]
+        
+        api_key="EFYlbleRxNekO5wTwwxmLxLf7y5NAQ9t"
+        api_instance = giphy_client.DefaultApi()
+        
+        api_response=api_instance.gifs_search_get(api_key,q="anime hug",limit=30,rating='g')
+        hugGifs = list(api_response.data)
+        giff=random.choice(hugGifs)
+        ur=giff.images.original.url
 
         if not user:
-            em = discord.Embed(description=f"{ctx.message.author.mention} hugs", color = 0x000000)
-            em.set_image(url=f"{random.choice(hugGifs)}")
-
+            em = discord.Embed(description=f"{ctx.message.author.mention} aww, are you that alone. here a hugs just for you", color = 0x000000)
+            em.set_image(url=f"{ur}")
             if Notes is None:
                 await ctx.send(embed=em)
             return
 
         embed = discord.Embed(description=f"{ctx.message.author.mention} hugs {user.mention}", color = 0x000000)
-        embed.set_image(url=f"{random.choice(hugGifs)}")
+        embed.set_image(url=f"{ur}")
 
         if Notes is None:
             await ctx.send(embed=embed)
         else:
             embedZ = discord.Embed(description=f"{ctx.message.author.mention} hugs {user.mention}, {Notes}", color = 0x000000)
-            embedZ.set_image(url=f"{random.choice(hugGifs)}")
+            embedZ.set_image(url=f"{ur}")
             await ctx.send(embed=embedZ)
+
+
+#Kiss
+
+    @commands.command()
+    async def kiss(self, ctx, user: discord.User = None, *, Notes=None):
+        
+        api_key="EFYlbleRxNekO5wTwwxmLxLf7y5NAQ9t"
+        api_instance = giphy_client.DefaultApi()
+        
+        api_response=api_instance.gifs_search_get(api_key,q="anime kiss",limit=30,rating='g')
+        kissGifs = list(api_response.data)
+        giff=random.choice(kissGifs)
+        ur=giff.images.original.url
+
+        if not user:
+            em = discord.Embed(description=f"{ctx.message.author.mention} aww, are you that alone. here a kiss just for you", color = 0x000000)
+            em.set_image(url=f"{ur}")
+            if Notes is None:
+                await ctx.send(embed=em)
+            return
+
+        embed = discord.Embed(description=f"{ctx.message.author.mention} kisses {user.mention}", color = 0x000000)
+        embed.set_image(url=f"{ur}")
+
+        if Notes is None:
+            await ctx.send(embed=embed)
+        else:
+            embedZ = discord.Embed(description=f"{ctx.message.author.mention} kisses {user.mention}, {Notes}", color = 0x000000)
+            embedZ.set_image(url=f"{ur}")
+            await ctx.send(embed=embedZ)
+
+
+#Cuddle
+
+#Gotta find a solution for it
+
+
+#Poke
+
+
+
+#Wave
+
+
+
+
+#Bite
+
+
+
+
+
+#Tease
+
+
+
+
+#Harass or Bully
+
+
+
+
+#Blush
+
+
+
+
+#Cry
+
+
+
+
+#Dance
+
+
+
+
+#Lick
+
+
+
+
+
+#Nom
+
+
+
+
+#pat
+
+
+
+
+#Slap
+
+
+
+
+
+#Punch
+
+
+
+#Greet
+
+
+
+
+
+#Kill
+
+
+
+
+#
 
 async def setup(bot):
     await bot.add_cog(Action(bot))
