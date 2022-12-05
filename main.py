@@ -15,7 +15,7 @@ async def on_ready():
 
 
 async def load():
-    for filename in os.listdir('./cogs'):
+    for filename in os.listdir('cogs'):
         if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
@@ -38,6 +38,6 @@ async def help(ctx):
 
 async def main():
     await load ()
-    await bot.start("TOKEN")
+    await bot.start("NzQ2NjU4NDk1Nzg4NzQ0NzE1.Gw9YC_.58AusCkC2AfagkmCxuv3XmmvBKDnhZ4p4DOLdY")
 
 asyncio.run(main())
