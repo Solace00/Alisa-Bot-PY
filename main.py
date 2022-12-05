@@ -1,10 +1,13 @@
 import discord
 import os
 import random
+import json
 import asyncio
 from discord import app_commands
 from discord.ext import commands
-
+with open('tokens.json', 'r') as f:
+  data = json.load(f)
+token=data['tokens']['bot token']
 intents = discord.Intents.all()
 intents.members = True
 bot = commands.Bot(command_prefix = "!", intents = intents, help_command=None)
@@ -38,6 +41,7 @@ async def help(ctx):
 
 async def main():
     await load ()
-    await bot.start("NzQ2NjU4NDk1Nzg4NzQ0NzE1.Gw9YC_.58AusCkC2AfagkmCxuv3XmmvBKDnhZ4p4DOLdY")
+    await bot.start(token)
+    
 
 asyncio.run(main())

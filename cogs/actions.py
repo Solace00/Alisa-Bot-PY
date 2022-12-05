@@ -3,10 +3,12 @@ import aiohttp
 import asyncio
 import random
 import giphy_client
+import json
 from giphy_client.rest import ApiException
 from discord import app_commands
 from discord.ext import commands
-
+with open('tokens.json', 'r') as f:
+  data = json.load(f)
 class Action(commands.Cog):
 
     def __init__(self, bot):
@@ -21,7 +23,7 @@ class Action(commands.Cog):
     @commands.command()
     async def hug(self, ctx, user: discord.User = None, *, Notes=None):
         
-        kawaii_token ="288311787072389120.wddZbVkXYndQaUNlFo9H"
+        kawaii_token=data['tokens']['kawaii_token']
         async with aiohttp.ClientSession() as session:
             async with session.get(f'https://kawaii.red/api/gif/hug/token={kawaii_token}') as r:
                 js = await r.json()
