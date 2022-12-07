@@ -45,4 +45,5 @@ async def main():
     await load ()
     await bot.start(token)
 
+
 asyncio.run(main())
