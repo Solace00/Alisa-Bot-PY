@@ -43,6 +43,7 @@ async def help(ctx):
 
 async def main():
     await load ()
-    await bot.start("token")
+    await bot.start(token)
+
 
 asyncio.run(main())
