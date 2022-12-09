@@ -52,6 +52,25 @@ class Mod(commands.Cog):
         await ctx.send(embed)
 
 
+    @clear.error
+    async def clear_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Error: Missing Required Arguments. You must pass in a whole number to run the clear command.")
+
+    @kick.error
+    async def kick_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Error: Missing Required Arguments. You must pass in user ID or a @ mention with a reason.")
+
+    @ban.error
+    async def ban_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Error: Missing Required Arguments. You must pass in user ID or a @ mention with a reason.")
+
+    @unban.error
+    async def unban_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Error: Missing Required Arguments. You must pass in user ID or a @ mention with a reason.")
 
 async def setup(bot):
     await bot.add_cog(Mod(bot))
