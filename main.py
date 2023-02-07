@@ -2,7 +2,7 @@ import discord
 import os
 import asyncio
 import json
-from discord import app_commands
+from discord_components import ComponentsBot
 from discord.ext import commands, tasks
 from itertools import cycle
 
